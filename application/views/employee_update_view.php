@@ -143,7 +143,7 @@ table tr:nth-child(even) {
         <?php echo form_input(array('name'=>'dni', 'id'=>'dni', 'placeholder'=>'DNI empleado', 'value'=>$employee->dni)) ?>
         <?php echo form_input(array('name'=>'name', 'id'=>'name', 'placeholder'=>'Nombre empleado', 'value'=>$employee->name)) ?>
         <?php echo form_input(array('name'=>'lastname', 'id'=>'lastname', 'placeholder'=>'Apellido empleado', 'value'=>$employee->lastname)) ?>
-        <?php echo form_submit('submit-user', 'Guardar cambios', array('class'=>'btn-submit')) ?>
+        <a href="<?php echo base_url() . "index.php/employee/update/" . $employee->dni; ?>">Actualizar</a>
         <?php echo form_close() ?>
       <?php endforeach; ?>
     </div>
