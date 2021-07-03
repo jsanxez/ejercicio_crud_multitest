@@ -15,6 +15,11 @@ class Employee_model extends CI_Model {
                 return $query->result();
         }
 
+        public function get_entry($id) {
+                $query = $this->db->get_where('employee', array('dni' => $id));
+                return $query->result();
+        }
+
         public function insert_entry() {
                 $this->dni = $this->input->post('dni');
                 $this->name = $this->input->post('name');
@@ -23,14 +28,14 @@ class Employee_model extends CI_Model {
                 $this->db->insert('employee', $this);
         }
 
-        public function update_entry() {
-                $this->dni    = $this->input->post('dni');
+        public function update_entry($dni) {
                 $this->name  = $this->input->post('name');
                 $this->lastname  = $this->input->post('lastname');
+
+                $this->db->update('employee', $dni);
         }
 
         public function delete_entry($dni) {
-                $this->dni    = $this->input->post('dni');
                 $this->name  = $this->input->post('name');
                 $this->lastname  = $this->input->post('lastname');
 

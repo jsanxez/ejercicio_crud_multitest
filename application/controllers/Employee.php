@@ -51,10 +51,9 @@ class Employee extends CI_Controller {
   }
 
   public function update($dni) {
-    $this->employee_model->update($dni);
-    if($this->db->affected_rows() > 0) {
-      echo "Datos eliminados correctamente";
-      $this->index();
-    }
+    echo "actualizar datos" . $dni;
+    // $data['dni'] = $dni;
+    $data['employees'] = $this->employee_model->get_entry($dni);
+    $this->load->view('employee_update_view', $data);
   }
 }

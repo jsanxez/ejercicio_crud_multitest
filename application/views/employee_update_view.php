@@ -139,37 +139,14 @@ table tr:nth-child(even) {
 
       <?php echo validation_errors(); ?>
       <?php echo form_open("employee/create", array('class'=>'forms')) ?>
-        <?php echo form_input(array('name'=>'dni', 'id'=>'dni', 'placeholder'=>'DNI empleado')) ?>
-        <?php echo form_input(array('name'=>'name', 'id'=>'name', 'placeholder'=>'Nombre empleado')) ?>
-        <?php echo form_input(array('name'=>'lastname', 'id'=>'lastname', 'placeholder'=>'Apellido empleado')) ?>
-        <?php echo form_submit('submit-user', 'Agregar', array('class'=>'btn-submit')) ?>
+      <?php foreach($employees as $employee) : ?>
+        <?php echo form_input(array('name'=>'dni', 'id'=>'dni', 'placeholder'=>'DNI empleado', 'value'=>$employee->dni)) ?>
+        <?php echo form_input(array('name'=>'name', 'id'=>'name', 'placeholder'=>'Nombre empleado', 'value'=>$employee->name)) ?>
+        <?php echo form_input(array('name'=>'lastname', 'id'=>'lastname', 'placeholder'=>'Apellido empleado', 'value'=>$employee->lastname)) ?>
+        <?php echo form_submit('submit-user', 'Guardar cambios', array('class'=>'btn-submit')) ?>
         <?php echo form_close() ?>
+      <?php endforeach; ?>
     </div>
-    <div class="container right-container">
-      <h2 class="title">Lista de empleados</h2>
-      <input type="search" name="" id="">
-      <table>
-        <tr>
-          <th>DNI</th>
-          <th>Nombre</th>
-          <th>Apellidos</th>
-          <th>Acciones</th>
-        </tr>
-
-        <?php foreach($employees as $employee) : ?>
-        <tr>
-          <td> <?php echo $employee->dni ?> </td>
-          <td> <?php echo $employee->name ?> </td>
-          <td> <?php echo $employee->lastname ?> </td>
-          <td>
-            <a href="<?php echo base_url() . "index.php/employee/update/" . $employee->dni; ?>">Editar</a>
-            <a href="<?php echo base_url() . "index.php/employee/delete/" . $employee->dni; ?>">Eliminar</a>
-          </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-
-  </div>
 </main>
 
 </body>
