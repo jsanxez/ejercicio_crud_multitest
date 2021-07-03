@@ -11,7 +11,7 @@ class Employee_model extends CI_Model {
         public $email;
         public $password;
 
-        // makes the database class available through $this->db object:
+        // Habilita la clase database mediante el objeto $this->db:
         public function __construct() {
                 $this->load->database();
         }
