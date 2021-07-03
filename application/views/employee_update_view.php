@@ -136,14 +136,13 @@ table tr:nth-child(even) {
   <main>
     <div class="container left-container">
       <h2 class="title">Nuevo empleado</h2>
-
       <?php echo validation_errors(); ?>
-      <?php echo form_open("employee/create", array('class'=>'forms')) ?>
       <?php foreach($employees as $employee) : ?>
+        <?php echo form_open("employee/update/" . $employee->dni, array('class'=>'forms')) ?>
         <?php echo form_input(array('name'=>'dni', 'id'=>'dni', 'placeholder'=>'DNI empleado', 'value'=>$employee->dni)) ?>
         <?php echo form_input(array('name'=>'name', 'id'=>'name', 'placeholder'=>'Nombre empleado', 'value'=>$employee->name)) ?>
         <?php echo form_input(array('name'=>'lastname', 'id'=>'lastname', 'placeholder'=>'Apellido empleado', 'value'=>$employee->lastname)) ?>
-        <a href="<?php echo base_url() . "index.php/employee/update/" . $employee->dni; ?>">Actualizar</a>
+        <?php echo form_submit('submit-user', 'Actualizar', array('class'=>'btn-submit')) ?>
         <?php echo form_close() ?>
       <?php endforeach; ?>
     </div>

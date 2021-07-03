@@ -28,10 +28,14 @@ class Employee_model extends CI_Model {
                 $this->db->insert('employee', $this);
         }
 
-        public function update_entry($dni, $name, $lastname) {
+        public function update_entry($dni) {
 
-                $this->db->set('name', $name);
-                $this->db->set('lastname', $lastname);
+                $this->dni = $this->input->post('dni');
+                $this->name = $this->input->post('name');
+                $this->lastname = $this->input->post('lastname');
+
+                $this->db->set('name', $this->name);
+                $this->db->set('lastname', $this->lastname);
                 $this->db->where('dni', $dni);
                 $this->db->update('employee');
         }

@@ -162,7 +162,7 @@ table tr:nth-child(even) {
           <td> <?php echo $employee->name ?> </td>
           <td> <?php echo $employee->lastname ?> </td>
           <td>
-            <a href="<?php echo base_url() . "index.php/employee/update/" . $employee->dni; ?>">Editar</a>
+            <a href="<?php echo base_url() . "index.php/employee/load_update/" . $employee->dni; ?>">Editar</a>
             <a href="<?php echo base_url() . "index.php/employee/delete/" . $employee->dni; ?>">Eliminar</a>
           </td>
         </tr>
