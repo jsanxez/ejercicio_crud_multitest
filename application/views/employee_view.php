@@ -165,8 +165,8 @@ table tr:nth-child(even) {
           <td> <?php echo $employee->name ?> </td>
           <td> <?php echo $employee->lastname ?> </td>
           <td>
-            <input type="button" value="Editar">
-            <input type="button" value="Eliminar">
+            <a href="<?php echo base_url() . "index.php/employee/update/" . $employee->dni; ?>">Editar</a>
+            <a href="<?php echo base_url() . "index.php/employee/delete/" . $employee->dni; ?>">Eliminar</a>
           </td>
         </tr>
         <?php endforeach; ?>

@@ -12,6 +12,7 @@ class Employee extends CI_Controller {
     // Permite crear y validar los formularios:
     $this->load->helper('form');
     $this->load->library('form_validation');
+    $this->load->helper('url');
 
   }
 
@@ -36,8 +37,24 @@ class Employee extends CI_Controller {
 
     } else {
       $this->employee_model->insert_entry();
-      // $this->index();
       echo "Datos ingresados con exito!";
+      $this->index();
+    }
+  }
+
+  public function delete($dni) {
+    $this->employee_model->delete_entry($dni);
+    if($this->db->affected_rows() > 0) {
+      echo "Datos eliminados correctamente";
+      $this->index();
+    }
+  }
+
+  public function update($dni) {
+    $this->employee_model->update($dni);
+    if($this->db->affected_rows() > 0) {
+      echo "Datos eliminados correctamente";
+      $this->index();
     }
   }
 }
