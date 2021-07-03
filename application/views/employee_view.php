@@ -135,9 +135,10 @@ table tr:nth-child(even) {
 
   <main>
     <div class="container left-container">
-      <h2 class="title"><?php echo $add_title; ?></h2>
+      <h2 class="title">Nuevo empleado</h2>
 
-      <?php echo form_open("form", $form_attributes) ?>
+      <?php echo validation_errors(); ?>
+      <?php echo form_open("employee/create", array('class'=>'forms')) ?>
         <?php echo form_input(array('name'=>'dni', 'id'=>'dni', 'placeholder'=>'DNI empleado')) ?>
         <?php echo form_input(array('name'=>'name', 'id'=>'name', 'placeholder'=>'Nombre empleado')) ?>
         <?php echo form_input(array('name'=>'lastname', 'id'=>'lastname', 'placeholder'=>'Apellido empleado')) ?>
@@ -148,7 +149,7 @@ table tr:nth-child(even) {
         <?php echo form_close() ?>
     </div>
     <div class="container right-container">
-      <h2 class="title"><?php echo $display_title; ?></h2>
+      <h2 class="title">Lista de empleados</h2>
       <input type="search" name="" id="">
       <table>
         <tr>
